@@ -1,0 +1,4 @@
+#!/bin/sh
+tint2 &
+cd /mezzo/mezzo5/mezzo;
+./conductor;

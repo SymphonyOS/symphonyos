@@ -1,0 +1,24 @@
+#!/usr/bin/ruby
+require 'sinatra'
+set :port, 9000
+system('./render.rb &')
+
+
+get '/' do
+ erb :desk
+end
+
+get '/menu/:menu' do 
+	c = params['menu']
+	if c == 'apps'
+		erb :app_menu
+	elsif c == 'files'
+		erb :file_menu
+	else
+		'ERROR: Invalid Menu Requested'
+	end
+end
+
+get '/settings' do
+	erb :settings
+end

@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<style type="text/css">
+body {
+border:0px;
+margin:0px;
+color:#FFF;
+}
+.sidebar {
+position:absolute;
+top:0px;
+bottom:0px;
+right:0px;
+width:125px;
+height:100%;
+}
+.main_area {
+position:absolute;
+top:0px;
+bottom:0px;
+left:0px;
+right:125px;
+width:auto;
+height:auto;
+overflow-y:auto;
+overflow-x:hidden;
+}
+.sidebar_icon {
+margin-top:20px;
+cursor:pointer;
+}
+.ico {
+	cursor:pointer; 
+}
+</style>
+
+
+<script type="text/javascript">
+	function launch(command){
+	    console.log("Command: "+command)
+		alert(command);
+	}
+</script>
+
+
+<link rel="stylesheet" href="/css/materialize.min.css"/>
+<script src="/js/materialize.min.js"></script>
+</head>
+<body class="grey darken-4">
+
+	<div class="main_area">
+		<div class="row" style="padding-top:25px;">
+			<!-- start icon -->
+			<div class="col s1 ico center" style="cursor:pointer;" onclick="launch('firefox')">
+				<div class="row">
+				<img src="/ico/Paper/64x64/apps/firefox.png"/>
+				</div>
+				<div class="row" style="margin-top:-10px;">
+				Firefox
+				</div>
+			</div>
+			<!-- end icon -->
+			<!-- start icon -->
+			<div class="col s1 ico center" style="cursor:pointer;" onclick="launch('gedit')">
+				<div class="row">
+				<img src="/ico/Paper/64x64/apps/gedit-logo.png"/>
+				</div>
+				<div class="row" style="margin-top:-10px;">
+				Text Editor
+				</div>
+			</div>
+			<!-- end icon -->
+			<!-- start icon -->
+			<div class="col s1 ico center" style="cursor:pointer;" onclick="launch('vlc')">
+				<div class="row">
+				<img src="/ico/Paper/64x64/apps/vlc.png"/>
+				</div>
+				<div class="row" style="margin-top:-10px;">
+				Media Player
+				</div>
+			</div>
+			<!-- end icon -->
+			<!-- start icon -->
+			<div class="col s1 ico center" style="cursor:pointer;" onclick="launch('/mezzo/mezzo5/webapp.rb http://localhost:9000/settings Settings 800 600')">
+				<div class="row">
+				<img src="/ico/Paper/64x64/apps/configuration_section.png"/>
+				</div>
+				<div class="row" style="margin-top:-10px;">
+				Settings
+				</div>
+			</div>
+			<!-- end icon -->
+		</div>
+	</div>
+	<div class="blue darken-4 sidebar">
+		<div class="row sidebar_icon">
+			<div class="col s12 center">
+			<img src="/img/add.png" onclick="launch('gksu synaptic')"/>
+			</div>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

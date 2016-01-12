@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<style type="text/css">
+body {
+border:0px;
+margin:0px;
+color:#FFF;
+}
+.sidebar {
+position:absolute;
+top:0px;
+bottom:0px;
+right:0px;
+width:125px;
+height:100%;
+}
+.main_area {
+position:absolute;
+top:0px;
+bottom:0px;
+left:0px;
+right:125px;
+width:auto;
+height:auto;
+overflow-y:auto;
+overflow-x:hidden;
+}
+.sidebar_icon {
+margin-top:20px;
+cursor:pointer;
+}
+.ico {
+	cursor:pointer; 
+}
+</style>
+
+
+<script type="text/javascript">
+	function launch(command){
+		command = command.replace('%u', ''); 
+	    console.log("Command: "+command)
+		alert(command);
+	}
+</script>
+
+
+<link rel="stylesheet" href="/css/materialize.min.css"/>
+<script src="/js/materialize.min.js"></script>
+</head>
+<body class="grey darken-4">
+
+	<div class="main_area">
+		<div class="row" style="padding-top:25px;">
+		
+<%
+ct = -1
+require 'parseconfig'
+require 'pp'
+dirs = ['/usr/share/applications','~/.local/share/applications']
+dirs.each do |dir|
+Dir["#{dir}/*.desktop"].each do |file|
+puts "File: #{file}"
+config = ParseConfig.new(file)
+#desktop = config.get_value('Desktop Entry')
+name = config["Desktop Entry"]["Name"]
+exec = config["Desktop Entry"]["Exec"]
+gen = config["Desktop Entry"]["GenericName"]
+texec = config["Desktop Entry"]["TryExec"]
+ico = config["Desktop Entry"]["Icon"]
+if ico != nil then
+if File.exist?(ico) then
+	#icon = ico
+	icon = "/ico/Paper/64x64/mimetypes/application-x-executable.png"
+elsif File.exist?("/usr/share/icons/Paper/64x64/apps/#{ico}") then
+	icon = "/ico/Paper/64x64/apps/#{ico}"
+elsif File.exist?("/usr/share/icons/Paper/64x64/apps/#{ico}.png") then
+	icon = "/ico/Paper/64x64/apps/#{ico}.png"
+else
+	icon = "/ico/Paper/64x64/mimetypes/application-x-executable.png"
+end
+end
+if texec == '' || texec == nil then
+texec = exec
+end
+comment = config["Desktop Entry"]["Comment"]
+if config["Desktop Entry"]["Categories"] != nil then
+categories = config["Desktop Entry"]["Categories"]
+catlist = categories.split(";")
+cl = ''
+catlist.each do |cat|
+cl << " #{cat}"
+end
+else 
+catlist = []
+end
+if icon != "" && icon != nil then
+
+ct = ct + 1
+if ct == 12 then
+ct = 0
+%>
+</div>
+<div class="row" style="padding-top:25px;">
+<%
+end
+%>
+			<!-- start icon -->
+			<div class="col s1 ico center<%= cl %>" style="cursor:pointer;" onclick="launch('<%= texec %>')">
+				<div class="row">
+				<img src="<%= icon %>"/>
+				</div>
+				<div class="row" style="margin-top:-10px;">
+				<%= name %>
+				</div>
+			</div>
+			<!-- end icon -->
+
+<%
+
+end
+end
+end
+%>
+		
+			
+		</div>
+	</div>
+	<div class="blue darken-4 sidebar">
+		<div class="row sidebar_icon">
+			<div class="col s12 center">
+			<img src="/img/add.png" onclick="launch('gksu synaptic')"/>
+			</div>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

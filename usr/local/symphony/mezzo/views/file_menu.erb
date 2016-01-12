@@ -1,0 +1,90 @@
+<%
+if session['pwd'] == nil then
+session['pwd'] = ENV['HOME']
+pwd = session['pwd']
+else
+pwd = session['pwd']
+end
+
+
+
+%>
+<html>
+
+<head>
+<style type="text/css">
+body {
+border:0px;
+margin:0px;
+color:#FFF;
+}
+.sidebar {
+position:absolute;
+top:0px;
+bottom:0px;
+left:0px;
+width:125px;
+height:100%;
+}
+.main_area {
+position:absolute;
+top:0px;
+bottom:0px;
+right:0px;
+left:125px;
+width:auto;
+height:auto;
+overflow-y:auto;
+overflow-x:hidden;
+}
+.sidebar_icon {
+margin-top:20px;
+cursor:pointer;
+}
+</style>
+<script type="text/javascript">
+function launch(command){
+alert(command);
+}
+</script>
+<link rel="stylesheet" href="/css/materialize.min.css"/>
+<script src="/js/materialize.min.js"></script>
+</head>
+<body class="grey darken-4">
+
+	<div class="main_area">
+	<div class="row">
+<%
+Dir["#{pwd}/*"].each do |file|
+file.slice! "#{pwd}/"
+%>
+			<!-- start icon -->
+			<div class="col s1 ico center" style="cursor:pointer;" onclick="launch('')">
+				<div class="row" style="padding-top:25px;">
+				<img src="/ico/Paper/64x64/mimetypes/empty.png"/>
+				</div>
+				<div class="row" style="margin-top:-10px;">
+				<%= file %>
+				</div>
+			</div>
+			<!-- end icon -->
+<%
+end
+%>
+	</div>
+
+
+	</div>
+	<div class="yellow darken-4 sidebar">
+		<div class="row sidebar_icon">
+			<div class="col s12 center">
+			<img src="/img/folder.png" onclick="launch('pcmanfm')"/>
+			</div>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

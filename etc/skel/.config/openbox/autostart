@@ -1,0 +1,5 @@
+cd /mezzo/mezzo5/mezzo/;
+./conductor &
+nm-applet &
+volume-icon &
+tint2;

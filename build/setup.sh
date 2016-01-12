@@ -1,4 +1,4 @@
-#!/usr/bin/env bash;
+#!/usr/bin/env bash
 
 # Update system
 apt-get update;

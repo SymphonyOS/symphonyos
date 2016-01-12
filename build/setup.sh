@@ -19,3 +19,12 @@ gem install gtk2;
 gem install webkit;
 gem install parseconfig;
 gem install pp;
+
+# Pull xresprobe (no longer in Ubuntu as of 15.10)
+wget https://launchpad.net/ubuntu/+source/xresprobe/0.4.24ubuntu9/+build/1274262/+files/xresprobe_0.4.24ubuntu9_amd64.deb;
+dpkg -i xresprobe_0.4.24ubuntu9_amd64.deb;
+apt-get -fy install;
+# Pull builder script
+wget http://nyc.symphonyos.com/pinguybuilder_4.3-2_all.deb;
+dpkg -i pinguybuilder_4.3-2_all.deb;
+apt-get -fy install;

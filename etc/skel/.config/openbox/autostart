@@ -1,4 +1,4 @@
-cd /mezzo/mezzo5/mezzo/;
+cd /usr/local/symphony/mezzo;
 ./conductor &
 nm-applet &
 volume-icon &

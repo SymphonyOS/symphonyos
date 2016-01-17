@@ -10,7 +10,7 @@ cp -Rf /root/.ssh /home/tmp/.;
 apt-get update;
 apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade;
 # Install necessary packages
-apt-get -y install git openbox network-manager-applet volumeicon-alsa lightdm libffi-dev pcmanfm tint2 nitrogen build-essential ruby ruby-sinatra ruby-dev libwebkit-dev lxterminal;
+apt-get -y install git openbox network-manager-gnome volumeicon-alsa lightdm libffi-dev pcmanfm tint2 nitrogen build-essential ruby ruby-sinatra ruby-dev libwebkit-dev lxterminal;
 
 # Pull source
 cd /tmp;
@@ -27,7 +27,7 @@ apt-get -fy install;
 cp /tmp/build/PinguyBuilder.conf /etc/.;
 
 #Pinguybuilder fix
-sed -i -e 's@user-uid [0-9]*@user-uid 990@' /usr/share/initramfs-tools/scripts/casper-bottom/25adduser
+#sed -i -e 's@user-uid [0-9]*@user-uid 990@' /usr/share/initramfs-tools/scripts/casper-bottom/25adduser
 
 # Build/Install Ruby Gems
 gem install gtk2;

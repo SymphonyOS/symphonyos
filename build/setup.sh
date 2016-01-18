@@ -34,6 +34,12 @@ gem install gtk2;
 gem install gtk-webkit-ruby;
 gem install parseconfig;
 
+# Get icon theme
+cd /tmp;
+git clone https://github.com/SymphonyOS/paper-icon-theme.git;
+cp -Rf /tmp/paper-icon-theme/Paper /usr/local/symphony/mezzo/public/ico/Paper;
+
+
 
 # Pull xresprobe (no longer in Ubuntu as of 15.10)
 #wget https://launchpad.net/ubuntu/+source/xresprobe/0.4.24ubuntu9/+build/1274262/+files/xresprobe_0.4.24ubuntu9_amd64.deb;

@@ -32,7 +32,7 @@ window.signal_connect('destroy') { Gtk.main_quit }
 # Applications Button
 #apps_btn = Gtk::Button.new("Apps", false)
 
-apps_btn_img = Gtk::Image.new("/mezzo/mezzo5/img/apps_btn.png")
+apps_btn_img = Gtk::Image.new("/usr/local/symphony/img/apps_btn.png")
 apps_btn = Gtk::EventBox.new.add(apps_btn_img)
 apps_btn.add apps_btn_img
 apps_btn_win = Gtk::Window.new
@@ -51,7 +51,7 @@ apps_btn_win.stick
 
 # Files Button
 #files_btn = Gtk::Button.new("Files", false)
-files_btn_img = Gtk::Image.new("/mezzo/mezzo5/img/files_btn.png")
+files_btn_img = Gtk::Image.new("/usr/local/symphony/img/files_btn.png")
 files_btn = Gtk::EventBox.new.add(files_btn_img)
 
 files_btn_win = Gtk::Window.new

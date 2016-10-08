@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /usr/local/symphony/;
+./webapp.rb http://localhost:9000/apps/applibrary "App Library" 800 600;

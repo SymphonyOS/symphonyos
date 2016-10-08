@@ -1,6 +1,0 @@
-cd /usr/local/symphony/mezzo;
-./conductor &
-nitrogen --restore &
-nm-applet &
-volume-icon &
-tint2;

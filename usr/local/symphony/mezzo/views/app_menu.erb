@@ -71,13 +71,13 @@ ico = config["Desktop Entry"]["Icon"]
 if ico != nil then
 if File.exist?(ico) then
 	#icon = ico
-	icon = "/ico/Paper/64x64/mimetypes/application-x-executable.png"
-elsif File.exist?("/usr/share/icons/Paper/64x64/apps/#{ico}") then
-	icon = "/ico/Paper/64x64/apps/#{ico}"
-elsif File.exist?("/usr/share/icons/Paper/64x64/apps/#{ico}.png") then
-	icon = "/ico/Paper/64x64/apps/#{ico}.png"
+	icon = "/ico/Paper/48x48/mimetypes/application-x-executable.png"
+elsif File.exist?("/usr/share/icons/Paper/48x48/apps/#{ico}") then
+	icon = "/ico/Paper/48x48/apps/#{ico}"
+elsif File.exist?("/usr/share/icons/Paper/48x48/apps/#{ico}.png") then
+	icon = "/ico/Paper/48x48/apps/#{ico}.png"
 else
-	icon = "/ico/Paper/64x64/mimetypes/application-x-executable.png"
+	icon = "/ico/Paper/48x48/mimetypes/application-x-executable.png"
 end
 end
 if texec == '' || texec == nil then

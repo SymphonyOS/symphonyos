@@ -31,14 +31,19 @@ margin-top:20px;
 cursor:pointer;
 }
 .ico {
-	cursor:pointer; 
+	cursor:pointer;
+	font-size:11px;
 }
 </style>
 
 
 <script type="text/javascript">
 	function launch(command){
-		command = command.replace('%u', ''); 
+		command = command.replace('%u', '');
+		command = command.replace('%f', '');
+		command = command.replace('%U', '');
+		command = command.replace('%F', '');
+		command = "cd ~; "+command;
 	    console.log("Command: "+command)
 		alert(command);
 	}
@@ -55,15 +60,26 @@ cursor:pointer;
 		
 <%
 ct = -1
+hide = 0
 require 'parseconfig'
 require 'pp'
 dirs = ['/usr/share/applications','~/.local/share/applications']
 dirs.each do |dir|
 Dir["#{dir}/*.desktop"].each do |file|
+hide = 0
 puts "File: #{file}"
 config = ParseConfig.new(file)
 #desktop = config.get_value('Desktop Entry')
 name = config["Desktop Entry"]["Name"]
+
+hidden = ["Python (v3.4)","Panel tint2","Reportbug","Respin Installer","Desktop Preferences","Access Prompt","Python (v2.7)","Openbox Configuration Manager","nitrogen","Where am I?","mutt","Vim"]
+
+hidden.each do |h|
+	if h == name
+		hide = 1
+	end
+end
+
 exec = config["Desktop Entry"]["Exec"]
 gen = config["Desktop Entry"]["GenericName"]
 texec = config["Desktop Entry"]["TryExec"]
@@ -94,7 +110,7 @@ end
 else 
 catlist = []
 end
-if icon != "" && icon != nil then
+if icon != "" && icon != nil && hide != 1 then
 
 ct = ct + 1
 if ct == 12 then
@@ -120,6 +136,7 @@ end
 
 end
 end
+
 end
 %>
 		

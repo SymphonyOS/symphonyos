@@ -15,12 +15,10 @@
   <item label="File Manager">
     <action name="Execute"><execute>pcmanfm</execute></action>
   </item>
-  <!-- This req
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
   <separator />
-  <menu id="client-list-menu" />
-  <separator />
+
   <item label="ObConf">
     <action name="Execute"><execute>obconf</execute></action>
   </item>

@@ -3,6 +3,7 @@ require 'sinatra'
 set :port, 9000
 system('./render.rb &')
 
+Tilt.register Tilt::ERBTemplate, 'html.erb'
 
 get '/' do
  erb :desk

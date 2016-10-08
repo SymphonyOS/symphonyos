@@ -12,6 +12,10 @@
   <item label="Web Browser">
     <action name="Execute"><execute>x-www-browser</execute></action>
   </item>
+  <item label="File Manager">
+    <action name="Execute"><execute>pcmanfm</execute></action>
+  </item>
+  <!-- This req
   <!-- This requires the presence of the 'menu' package to work -->
   <menu id="/Debian" />
   <separator />
@@ -19,6 +23,10 @@
   <separator />
   <item label="ObConf">
     <action name="Execute"><execute>obconf</execute></action>
+  </item>
+  <separator/>
+  <item label="Change Wallpaper">
+    <action name="Execute"><execute>nitrogen</execute></action>
   </item>
   <item label="Reconfigure">
     <action name="Reconfigure" />
